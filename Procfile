@@ -1,1 +1,1 @@
-web: gunicorn chapri:app --worker-class gevent -w 1
+web: gunicorn chapri:app --worker-class eventlet -w 1
