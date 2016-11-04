@@ -19,7 +19,6 @@ class Config(object):
         # get sensible credentials from environment variables
         try:
             self.config['MONGODB_URI'] = str(os.environ['MONGODB_URI'])
-            self.config['DEBUG'] = str(os.environ['DEBUG'])
             self.app.config.update(self.config)
         except KeyError:
             pass
