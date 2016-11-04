@@ -14,6 +14,11 @@ from flask_socketio import (
 
 
 class ChatNamespace(Namespace):
+    def __init__(self, app, db, *args, **kwargs):
+        super(ChatNamespace, self).__init__(*args, **kwargs)
+        self.db = db
+        self.app_config = app.config
+
     def on_my_event(self, message):
         session['receive_count'] = session.get('receive_count', 0) + 1
         emit('my_response',
@@ -21,6 +26,9 @@ class ChatNamespace(Namespace):
 
     def on_my_broadcast_event(self, message):
         session['receive_count'] = session.get('receive_count', 0) + 1
+
+        self.db[self.app_config['MONGODB_CHATS_COLLECTION']].insert({"gu": "1"})
+
         emit('my_response',
              {'data': message['data'], 'count': session['receive_count']},
              broadcast=True)

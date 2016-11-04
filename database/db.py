@@ -8,9 +8,7 @@ class Mongodb(object):
     """
     Handle mongodb connection
     """
-    mongo_client = None
-    mongodb = None
-
+ 
     def __init__(self, uri, database):
         """
         Establish connection to mongoDB database
@@ -24,3 +22,9 @@ class Mongodb(object):
             print "Connected successfully to: {}".format(database)
         except errors.ConnectionFailure, e:
             print "Could not connect to database: {}".format(e)
+
+    def get_db(self):
+        return self.mongodb
+    
+    def get_client(self):
+        return self.mongo_client
