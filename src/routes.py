@@ -1,7 +1,14 @@
 from flask import render_template
 
 
-def init_routes(app, socketio_async_mode):
-    @app.route('/')
-    def index():
-        return render_template('index.html', async_mode=socketio_async_mode)
+class Routes(object):
+    
+    def __init__(self, app):
+        self.app = app
+        self.index = app.route('/')(self.index)
+        
+    def index(self):
+        return render_template(
+            'index.html',
+            async_mode=self.app.config['ASYNC_MODE']
+        )

@@ -15,12 +15,13 @@ setup(
     include_package_data=True,
     platforms='any',
     install_requires=[
-        'Flask>=0.9',
+        'Flask',
         'python-socketio>=1.5.0',
         'python-engineio>=1.0.0',
         'eventlet',
         'gunicorn',
-        'flask-socketio'
+        'flask-socketio',
+        'pymongo'
     ],
     test_suite='tests'
 )
