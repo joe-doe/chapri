@@ -2,5 +2,6 @@
     "ASYNC_MODE": "eventlet",
     "MONGODB_URI": "mongodb://localhost:27017/",
     "MONGODB_DB": "chapri",
-    "MONGODB_CHATS_COLLECTION": "chats"
+    "MONGODB_CHATS_COLLECTION": "chats",
+    "MONGODB_USERS_COLLECTION": "users"
 }

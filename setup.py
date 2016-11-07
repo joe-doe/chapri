@@ -21,7 +21,8 @@ setup(
         'eventlet',
         'gunicorn',
         'flask-socketio',
-        'pymongo'
+        'pymongo',
+        'flask-login'
     ],
     test_suite='tests'
 )
